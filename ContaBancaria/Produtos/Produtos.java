@@ -1,10 +1,15 @@
 package Produtos;
 
+import java.util.Random;
+
 import javax.annotation.processing.Generated;
 
 public class Produtos {
 
-    private Integer codigoP;
+   
+    private Integer codigoP unique = true;              
+
+
     private String nomeP;
     private Double precoP;
     private Integer quantidadeEstoque;
@@ -76,7 +81,8 @@ public class Produtos {
         }
     }
     public Integer codigoP(){
-        
+        this.codigoP = this.codigoP +(int)( new Random().nextInt(100000000));
+        return codigoP;
     }
 
     public String dadosProduto() {
