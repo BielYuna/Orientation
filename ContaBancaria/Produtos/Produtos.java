@@ -7,7 +7,7 @@ import javax.annotation.processing.Generated;
 public class Produtos {
 
    
-    private Integer codigoP unique = true;              
+    private Integer codigoP;              
 
 
     private String nomeP;
