@@ -14,4 +14,7 @@ public class ContaBancaria{
             System.out.println("Saldo insufuciente!");
         }
     }
+    public void dadosConta(){
+        System.out.println("Titular: "+titular+"\nNumero da conta: "+numeroConta+"\nSaldo: "+saldo);
+    }
 }
