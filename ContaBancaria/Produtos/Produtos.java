@@ -1,15 +1,13 @@
 package Produtos;
 
 import java.util.Random;
-
 import javax.annotation.processing.Generated;
-
+import java.util.Scanner;
 public class Produtos {
 
+        Scanner sc = new Scanner(System.in);
    
-    private Integer codigoP unique = true;              
-
-
+    private Integer codigoP;              
     private String nomeP;
     private Double precoP;
     private Integer quantidadeEstoque;
@@ -40,7 +38,6 @@ public class Produtos {
     public Double getPrecoP() {
         return precoP;
     }
-
     public void aplicarDesconto(Double percentual) {
         if (percentual > 0 && percentual <= 30) {
             Double desconto = (precoP * percentual) / 100;
@@ -51,11 +48,22 @@ public class Produtos {
         }
     }
 
+   /**  public int produto(){
+        if (quantidadeEstoque >=0){
+            System.out.println("Digite o nome do produto que deseja comprar: ");
+            sc.nextLine();
+            return quantidadeEstoque;
+        }        else{
+            System.out.println("Produto indisponivel no momento");
+            return quantidadeEstoque;
+        }
+    }*/
+
     public Integer atualizarEstoque(int compra) {
         try {
-            if (quantidadeEstoque >= compra) {
-                quantidadeEstoque = quantidadeEstoque + compra;
-                System.out.println("Compra realizada com sucesso! Estoque atual: ");
+            if (quantidadeEstoque >= quantidadeEstoque) {
+                quantidadeEstoque = quantidadeEstoque + quantidadeEstoque;;
+                System.out.println("Estoque atual atualizado: ");
             } else if (quantidadeEstoque <= 10) {
                 System.out.println("Estoque baixo! necessario reabastecer...");
             }
@@ -89,3 +97,18 @@ public class Produtos {
         return "DADOS PRODUTO" + "\nNome: " + nomeP + "\nCodigo: " + codigoP + "\nPreco: " + precoP + "\nQuantidade em Estoque: " + quantidadeEstoque;
     }
 }
+/**public Integer atualizarEstoque(int compra) {
+        try {
+            if (quantidadeEstoque >= compra) {
+                quantidadeEstoque = quantidadeEstoque + compra;
+                System.out.println("Compra realizada com sucesso! Estoque atual: ");
+            } else if (quantidadeEstoque <= 10) {
+                System.out.println("Estoque baixo! necessario reabastecer...");
+            }
+            return quantidadeEstoque;
+
+        } catch (Exception erro) {
+            System.out.println("Erro ao atualizar estoque: " + erro.getMessage());
+            return quantidadeEstoque;
+        }
+    }**/
