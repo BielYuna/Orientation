@@ -8,8 +8,8 @@ public class VendaProdutos {
     //... 
         produto1.atualizarEstoque(50);
         produto1.aplicarDesconto(20.0);
+        produto1.venderProduto(10); 
         produto1.aplicarDesconto(40.0);
-        produto1.venderProduto(10);
         produto1.venderProduto(45);
         produto1.dadosProduto();
     }
