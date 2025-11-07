@@ -1,7 +1,6 @@
 package Produtos;
 
 import java.util.Random;
-import javax.annotation.processing.Generated;
 import java.util.Scanner;
 public class Produtos {
 
@@ -19,25 +18,37 @@ public class Produtos {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    public void setNomeP(String nomeP) {
-        this.nomeP = nomeP;
-    }
-
-    public void setPrecoP(Double precoP) {
-        this.precoP = precoP;
-    }
+  
+   
 
     public void setQuantidadeEstoque(Integer quantidadeEstoque) {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    public String getNomeP() {
-        return nomeP;
+  
+   
+    public Integer getCodigoP() {
+        return codigoP;
     }
 
+   
     public Double getPrecoP() {
         return precoP;
     }
+
+    public Integer getQuantidadeEstoque() {
+        return quantidadeEstoque;
+    }
+
+    public void cadastrarP(){
+        System.out.print("Digite o nome do produto: ");
+        nomeP = sc.nextLine();
+        System.out.print("Digite o preco do produto: ");
+        precoP = sc.nextDouble();
+        this.codigoP = codigoP +(int)( new Random().nextInt(100000000));
+        System.out.println("Produto cadastrado com sucesso! Codigo do produto: " + this.codigoP+"\n");
+    }
+
     public void aplicarDesconto(Double percentual) {
         if (percentual > 0 && percentual <= 30) {
             Double desconto = (precoP * percentual) / 100;
@@ -47,18 +58,6 @@ public class Produtos {
             System.out.println("Desconto invalido!");
         }
     }
-
-   /**  public int produto(){
-        if (quantidadeEstoque >=0){
-            System.out.println("Digite o nome do produto que deseja comprar: ");
-            sc.nextLine();
-            return quantidadeEstoque;
-        }        else{
-            System.out.println("Produto indisponivel no momento");
-            return quantidadeEstoque;
-        }
-    }*/
-
     public Integer atualizarEstoque(int compra) {
         try {
             if (quantidadeEstoque <= compra) {
@@ -93,7 +92,7 @@ public class Produtos {
         return codigoP;
     }
 
-    public String dadosProduto() {
-        return "DADOS PRODUTO" + "\nNome: " + nomeP + "\nCodigo: " + codigoP + "\nPreco: " + precoP + "\nQuantidade em Estoque: " + quantidadeEstoque;
+    public void dadosProduto() {
+        System.out.println( "\nDADOS PRODUTO" + "\nNome: " + nomeP + "\nCodigo: " + codigoP + "\nPreco: " + precoP + "\nQuantidade em Estoque: " + quantidadeEstoque);
     }
 }
