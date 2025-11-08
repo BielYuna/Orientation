@@ -1,74 +1,56 @@
-public class ContaBancaria{
-    /**Atributos Privados
-     *Usa do encapsulamento para proteger os atributos desta classe **/
+package exercicios;
+import javax.swing.*;
+
+public class ContaBancaria {
+    /**
+     * Atribuots privados: uso do encapsulamento para proteger os atributos
+     * */
     private String numeroConta;
     private double saldo;
     private String titular;
 
-      /**Construtor
-     *Define como os objetos dessa classe serão criados **/
-    public ContaBancaria(){
-    }
-
-    public ContaBancaria(String numeroConta, String titular, double saldo){
+    /**
+     * Construtor: define como os objetos serão criados
+     */
+    public ContaBancaria(String numeroConta, double saldo, String titular) {
         this.numeroConta = numeroConta;
-        this.titular = titular;
         this.saldo = saldo;
+        this.titular = titular;
     }
-    
-    /**Metodos Publicos
-     *Metodos são os serviços que serão executados **/
-    public void depositar(int saldo){
-        try{
-            if (saldo > 0){
-                this.saldo = saldo + this.saldo;
-                System.out.println("Deposito realizado com sucesso!"+"\nSaldo atual= "+(this.saldo + saldo));
-                return;
-            }else{
-                System.out.println("Valor do deposito deve ser maior que zero!");
-            }
-        }catch(Exception erro){
-            System.out.println("Erro ao depositar: "+erro.getMessage());
-        }
-    }
-    public void sacar(int saque){
-        if (saldo >= saque){
-            saldo = saldo-saque;
-            System.out.println("Saque realizado com sucesso!"+"\nSaldo atual= "+saldo);  
-        }else{
-            System.out.println("Saldo insufuciente!");
+
+    public void depositar(double valor) {
+        if(valor > 0){
+            this.saldo += valor;
+            System.out.println("Depósito de R$" + valor + " realizado com sucesso!");
+        }else {
+            System.out.println("Erro: valor insuficiente para depósito.");
         }
     }
 
-    public void consultarSaldo(){
-        System.out.println("Saldo atual= "+saldo);
+    public void sacar(double valor) {
+        if(valor <= saldo && valor > 0) {
+            saldo -= valor;
+            System.out.println("Saque de R$ " + valor+ " realizado com sucesso!");
+        }else {
+            System.out.println("Erro: Saldo insuficiente ou valor inválido!");
+        }
     }
 
-    public void alterarTitular(String titular){
-        try{
-        if(titular.length() > 0){
-            System.out.println("Titular alterado com sucesso de "+this.titular+" para "+titular);
-            this.titular = titular;
-        }else{
-            System.out.println( "Titular nao pode ser vazio!" );
-            }
-        }catch(Exception erro){
-            System.out.println("Erro ao alterar titular: "+erro.getMessage());
+    public void consultaSaldo() {
+        System.out.println("Saldo atual: R$" + saldo);
+    }
+
+    public void alterarTitular(String novoTitular) {
+        if (novoTitular.equals("")) {
+            System.out.println("Erro: o nome do titular não pode ser vazio!");
+        } else {
+            titular = novoTitular;
+            System.out.println("Titular alterado para: " + titular);
         }
     }
 
     public void dadosConta(){
-        System.out.println("DADOS CLIENTE"+"\nTitular: "+titular+"\nNumero da conta: "+numeroConta+"\nSaldo: "+saldo);
+        System.out.println("Dados Cliente" + "\nTitular: " + titular + "\nNumero da conta: " + numeroConta + "\nSaldo: " + saldo);
     }
-
-    /**Metodos Getters e Setters
-     *Define os metodos para requisitar e adicionar valores aos atributos **/
-    public String getTitular(){
-        return titular;
-    }
-    public void setTitular(String titular){
-        this.titular = titular;
-    }
-
 
 }
